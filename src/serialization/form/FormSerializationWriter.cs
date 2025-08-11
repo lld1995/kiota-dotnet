@@ -245,21 +245,22 @@ public class FormSerializationWriter : ISerializationWriter
     {
         if(values == null) return;
 
-        StringBuilder? valueNames = null;
+        //StringBuilder? valueNames = null;
         foreach(var x in values)
         {
             if(x.HasValue && EnumHelpers.GetEnumStringValue(x.Value) is string valueName)
             {
-                if(valueNames == null)
-                    valueNames = new StringBuilder();
-                else
-                    valueNames.Append(",");
-                valueNames.Append(valueName);
+                //if(valueNames == null)
+                //    valueNames = new StringBuilder();
+                //else
+                //    valueNames.Append(",");
+                //valueNames.Append(valueName);
+                WriteStringValue(key, valueName);
             }
         }
 
-        if(valueNames is not null)
-            WriteStringValue(key, valueNames.ToString());
+        //if(valueNames is not null)
+        //    WriteStringValue(key, valueNames.ToString());
     }
 
     /// <inheritdoc/>
